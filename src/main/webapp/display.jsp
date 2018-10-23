@@ -16,9 +16,13 @@
     double rate = Double.parseDouble(request.getParameter("rate"));
     int year = Integer.parseInt(request.getParameter("year"));
 
-    double result = amount + (amount * rate * year/10);
+    double futureValue = amount + (amount * rate * 0.1);
 
-    out.println("<h1>Your future value is: " + result + "$</h1>");
+    for (int i = 0; i < year; i++) {
+        futureValue += futureValue;
+    }
+
+    out.println("<h1>Your future value is: " + futureValue + "$</h1>");
 %>
 </body>
 </html>
